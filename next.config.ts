@@ -1,8 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+  experimental: {
+    // @ts-expect-error React Compiler is currently experimental
+    reactCompiler: true,
+  },
 };
 
 export default nextConfig;

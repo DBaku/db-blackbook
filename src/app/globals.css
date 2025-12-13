@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
+/* HINWEIS FÜR DICH: 
+  In Tailwind v4 ersetzt '@import "tailwindcss";' die alten 
+  @tailwind base, @tailwind components und @tailwind utilities Befehle.
+*/
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Default Transitions für alles */
+  --transition-speed: 0.5s;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* BLUEBOOK MODE (Seriös, Hell, Papier-Look) */
+body[data-mode="bluebook"] {
+  --bg-primary: #f8fafc; /* Slate 50 */
+  --bg-secondary: #ffffff;
+  --text-primary: #0f172a; /* Slate 900 */
+  --text-secondary: #475569; /* Slate 600 */
+  --accent: #2563eb; /* Blue 600 */
+  --border: #e2e8f0; /* Slate 200 */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* BLACKBOOK MODE (Creative, Dunkel, Neon) */
+body[data-mode="blackbook"] {
+  --bg-primary: #09090b; /* Zinc 950 */
+  --bg-secondary: #18181b; /* Zinc 900 */
+  --text-primary: #fafafa; /* Zinc 50 */
+  --text-secondary: #a1a1aa; /* Zinc 400 */
+  --accent: #8b5cf6; /* Violet 500 */
+  --border: #27272a; /* Zinc 800 */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-speed) ease,
+    color var(--transition-speed) ease;
+}
+
+/* Hilfsklassen für Tailwind Nutzung der Variablen */
+@layer utilities {
+  .bg-theme {
+    background-color: var(--bg-primary);
+  }
+  .bg-card-theme {
+    background-color: var(--bg-secondary);
+  }
+  .text-theme {
+    color: var(--text-primary);
+  }
+  .text-muted-theme {
+    color: var(--text-secondary);
+  }
+  .border-theme {
+    border-color: var(--border);
+  }
+}
+
+@layer utilities {
+  /* Das Raster für den Dark Mode (Blackbook) */
+  .bg-grid-white\/5 {
+    background-size: 40px 40px;
+    background-image: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+
+  /* Das Raster für den Light Mode (Bluebook) */
+  .bg-grid-black\/5 {
+    background-size: 40px 40px;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  }
 }
