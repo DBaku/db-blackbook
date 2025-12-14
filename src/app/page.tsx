@@ -3,7 +3,15 @@
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import Skills from "@/components/sections/Skills";
+import Projects from "@/components/sections/Projects";
+import Timeline from "@/components/sections/Timeline";
+import Contact from "@/components/sections/Contact";
 import { useMode } from "@/context/ModeContext";
+import Booking from "@/components/sections/Booking";
+import CVDownload from "@/components/sections/CVDownload";
+import Newsletter from "@/components/sections/Newsletter";
+import PortfolioGallery from "@/components/sections/PortfolioGallery";
+import StickyCTA from "@/components/ui/StickyCTA";
 
 export default function Home() {
   const { mode } = useMode();
@@ -40,7 +48,14 @@ export default function Home() {
       <div className="relative z-10">
         <Navbar />
         <Hero />
-        <Skills /> {/* <--- Hier einfügen */}
+        <Skills />
+        <Projects />
+        <Timeline />
+        <PortfolioGallery />
+        <Booking />
+        <CVDownload />
+        <Contact />
+        <StickyCTA />
         {/* Platzhalter für später */}
         <div className="h-[20vh]" />
       </div>

@@ -79,32 +79,34 @@ export default function Hero() {
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-4">
-            <button
+            <a
+              href="#projects"
               className={`
-              px-8 py-3 rounded-lg font-medium transition-all flex items-center gap-2
+              inline-flex items-center gap-2 px-8 py-3 rounded-lg font-medium transition-all
               ${
                 isBlue
                   ? "bg-slate-900 text-white hover:bg-slate-800 shadow-lg shadow-slate-900/20"
                   : "bg-white text-black hover:bg-zinc-200"
               }
             `}
+              aria-label="Zum Projekte Abschnitt springen"
             >
               {isBlue ? "Projekte ansehen" : "Initialize_View()"}
               <ArrowRight size={18} />
-            </button>
+            </a>
 
-            <button
-              className={`
-              px-8 py-3 rounded-lg font-medium transition-all border
-              ${
-                isBlue
+            <a
+              href="#contact"
+              className={
+                `px-8 py-3 rounded-lg font-medium transition-all border inline-flex items-center justify-center ` +
+                (isBlue
                   ? "border-slate-200 text-slate-600 hover:border-slate-300"
-                  : "border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 font-mono"
+                  : "border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 font-mono")
               }
-            `}
+              aria-label="Zum Kontakt Abschnitt springen"
             >
               Kontakt
-            </button>
+            </a>
           </div>
         </motion.div>
 
@@ -122,9 +124,11 @@ export default function Hero() {
           `}
           >
             <div className="absolute inset-0 bg-grid-pattern opacity-20" />
-            <span className="opacity-50">
-              {isBlue ? "[Professional Portrait Area]" : "[Anubis.db Visual]"}
-            </span>
+            <img
+              src="/assets/hero/hero.svg"
+              alt="Hero"
+              className="w-full h-full object-cover rounded-2xl"
+            />
           </div>
         </motion.div>
       </div>

@@ -10,6 +10,11 @@
   --transition-speed: 0.5s;
 }
 
+/* Smooth anchor scrolling for in-page links */
+html {
+  scroll-behavior: smooth;
+}
+
 /* BLUEBOOK MODE (Seriös, Hell, Papier-Look) */
 body[data-mode="bluebook"] {
   --bg-primary: #f8fafc; /* Slate 50 */
