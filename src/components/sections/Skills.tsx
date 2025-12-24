@@ -16,12 +16,13 @@ import {
 // Mapping für Icons und schöne Titel basierend auf deinen Data-Keys
 const CATEGORY_CONFIG: Record<string, { label: string; icon: any }> = {
   core: { label: "Core Stack", icon: Layout },
-  advanced: { label: "Advanced Tech", icon: Server },
-  learning: { label: "Currently Loading...", icon: Cpu },
+  backend_infra: { label: "Backend / Infra", icon: Server },
+  devops_cloud: { label: "DevOps & Cloud", icon: Terminal },
+  ai_engineering: { label: "AI Engineering", icon: Palette },
+  learning: { label: "Currently Learning", icon: Cpu },
   databases: { label: "Data Architecture", icon: Database },
   tools: { label: "Toolchain", icon: Wrench },
-  creative_ai: { label: "Generative AI", icon: Palette },
-  styling: { label: "UI / UX Styling", icon: Palette }, // Fallback Icon
+  styling: { label: "UI / UX Styling", icon: Palette },
 };
 
 export default function Skills() {

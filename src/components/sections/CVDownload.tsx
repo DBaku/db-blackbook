@@ -4,23 +4,22 @@ import React from "react";
 
 export default function CVDownload() {
   const downloadVCard = () => {
-    const data = `BEGIN:VCARD\nVERSION:3.0\nFN:${"Dimitrij Bakumenko"}\nEMAIL:${"dimaba487@gmail.com"}\nORG:${"The Visionary Lab"}\nEND:VCARD`;
+    const data = `BEGIN:VCARD\nVERSION:3.0\nFN:Dimitrij Bakumenko\nN:Bakumenko;Dimitrij;;;\nORG:The Visionary Lab\nTITLE:ANUBIS\nEMAIL:d.bakumenko030@gmail.com\nTEL;TYPE=WORK,VOICE:\nURL:https://thevisionarylab.org\nADR:;;Berlin;;;;;\nEND:VCARD`;
     const blob = new Blob([data], { type: "text/vcard" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "dimitrij-bakumenko.vcf";
+    a.download = "vcard.jpg";
     a.click();
     URL.revokeObjectURL(url);
   };
 
   const downloadResume = () => {
-    // Prefer linking to a static PDF in public/assets/resume/resume.pdf
-    const url = "/assets/resume/resume.pdf";
+    // Download the HTML CV placed in public/assets/resume/cv_db26.html
+    const url = "/assets/resume/cv_db26.html";
     const a = document.createElement("a");
     a.href = url;
-    a.target = "_blank";
-    a.rel = "noopener";
+    a.download = "cv_db26.html";
     a.click();
   };
 

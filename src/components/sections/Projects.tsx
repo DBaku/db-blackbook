@@ -61,12 +61,22 @@ export default function Projects() {
                 }
               `}
               >
-                {/* Hier käme später <Image /> hin */}
-                <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-                <Folder
-                  size={40}
-                  className={isBlue ? "text-slate-300" : "text-zinc-700"}
-                />
+                {/* Render project image if available, otherwise fallback icon */}
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+                    <Folder
+                      size={40}
+                      className={isBlue ? "text-slate-300" : "text-zinc-700"}
+                    />
+                  </>
+                )}
 
                 {/* Category Badge overlay */}
                 <span

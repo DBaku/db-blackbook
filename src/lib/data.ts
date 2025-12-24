@@ -11,7 +11,10 @@ export const DATA = {
         "Ich baue Webapps, experimentiere mit KI und verwandle Ideen in funktionierende Produkte. React, Laravel und AI-Tools sind mein Spielplatz. Aktuell arbeite ich daran, Kreativität, Automatisierung und saubere Technik unter einem Dach zu vereinen.",
     },
     contact: {
-      email: "dimaba487@gmail.com",
+      // Public-facing email
+      email: "d.bakumenko030@gmail.com",
+      // Private / internal notifications and tests (not shown publicly)
+      privateEmail: "dimaba487@gmail.com",
       github: "https://github.com/DBaku",
       gitlab: "https://gitlab.rz.htw-berlin.de/s0602289",
       instagram: "https://instagram.com/anubis.db",
@@ -21,63 +24,44 @@ export const DATA = {
 
   skills: {
     core: [
-      "JavaScript",
+      "JavaScript (ES6+)",
       "TypeScript",
       "React",
-      "PHP",
-      "Laravel",
-      "HTML5",
-      "CSS3",
+      "Next.js",
       "Tailwind CSS",
-      "Git",
+      "SaaS Architecture",
     ],
 
-    advanced: [
+    backend_infra: [
       "Node.js",
-      "Vite",
-      "SQL",
-      "MySQL",
-      "MariaDB",
-      "MongoDB",
+      "Laravel",
+      "Supabase",
+      "PostgreSQL",
+      "Stripe API",
       "Cloudinary",
-      "Vercel",
-      "Prompt Engineering",
-      "Workflow Automation",
+      "Render",
     ],
 
-    learning: [
-      "Java (Academic)",
-      "Spring (Basics)",
-      "Maven",
-      "Python",
-      "Flask",
-      "TensorFlow (Intro)",
-      "Software Architecture",
-      "DevOps Fundamentals",
-    ],
-
-    databases: [
-      "MySQL",
-      "MariaDB",
-      "MongoDB",
-      "SQLite",
-      "PostgreSQL (Admin via pgAdmin4)",
-    ],
-
-    tools: [
-      "VS Code",
-      "Eclipse",
-      "Theia Blueprint",
+    devops_cloud: [
+      "Git",
       "GitHub",
-      "Postman",
-      "Notion",
-      "macOS Automator",
-      "Shell / Bash (Basics)",
+      "GitLab",
+      "Vercel",
+      "Netlify",
+      "Cloudflare",
+      "Docker (Basics)",
     ],
 
-    creative_ai: ["Midjourney", "Stable Diffusion", "Fotor", "Canva", "GoArt"],
+    ai_engineering: [
+      "Hugging Face",
+      "LLM Integration",
+      "Model Fine-Tuning",
+      "Workflow Automation",
+      "Midjourney",
+      "Stable Diffusion",
+    ],
 
-    styling: ["Tailwind CSS", "Bootstrap", "Vanilla CSS"],
+    tools: ["VS Code", "Postman", "Notion API", "Figma"],
   },
 
   timeline: [
@@ -126,44 +110,39 @@ export const DATA = {
 
   projects: [
     {
-      title: "The Visionary Lab",
-      tech: ["React", "Vite", "Tailwind CSS", "Vercel", "Cloudinary"],
+      title: "Project Everrest",
+      tech: ["React", "Vite", "Tailwind CSS", "Supabase"],
       description:
-        "Zentrale Plattform zur Bündelung kreativer und technischer Projekte. Fokus auf Erweiterbarkeit, saubere Struktur und Medienmanagement.",
+        "Moderne E-Commerce Plattform für Outdoor-Equipment (Version 2.0). Features: Performante Produktsuche, persistenter Warenkorb und modernes UI-Design.",
+      link: "https://project-everrest.vercel.app/",
+      image: "/assets/projects/everrest.png",
+      category: "E-Commerce",
+    },
+    {
+      title: "Groq AI Analyzer", // oder "QuoteVote" wenn dir der Name lieber ist
+      tech: ["Groq API", "React", "AI Analysis", "Tailwind"],
+      description:
+        "Echtzeit-Sentiment-Analyse. Eine KI-Anwendung, die Texteingaben blitzschnell auf Emotionen und Kontext analysiert. Powered by Groq.",
+      link: "https://quotevote.vercel.app/",
+      image: "/assets/projects/quotevote.png",
+      category: "AI & NLP",
+    },
+    {
+      title: "AI Image Agent",
+      tech: ["Next.js", "GenAI API", "UI/UX", "Tailwind"],
+      description:
+        "Intuitives Interface zur Generierung von KI-Kunst. Mit One-Click Style-Presets (Cyberpunk, Anime, Noir) und Prompt-Optimierung.",
+      link: "https://ai-image-agent-ui.vercel.app/",
+      image: "/assets/projects/imageui.png",
+      category: "Creative Tooling",
+    },
+    {
+      title: "The Visionary Lab",
+      tech: ["Next.js 14", "TypeScript", "Framer Motion", "Context API"],
+      description:
+        "Dieses Portfolio. Ein Dual-Mode Erlebnis (Bluebook/Blackbook), das zeigt, wie man Storytelling und High-End Frontend-Architektur verbindet.",
       link: "https://thevisionarylab.org",
       category: "Platform",
-    },
-
-    {
-      title: "Anubis.db",
-      tech: [
-        "Midjourney",
-        "Stable Diffusion",
-        "Brand Strategy",
-        "Social Media Tooling",
-      ],
-      description:
-        "Aufbau einer konsistenten AI-Art-Marke mit klarer visueller Identität. Community-Aufbau und Vorbereitung der Monetarisierung.",
-      link: "https://instagram.com/anubis.db",
-      category: "Brand & AI",
-    },
-
-    {
-      title: "Urban Cat Chronicles",
-      tech: ["AI Image Generation", "Canva", "Content Automation"],
-      description:
-        "Serienbasiertes visuelles Projekt mit Fokus auf Wiedererkennbarkeit und Storytelling.",
-      link: "",
-      category: "Creative Series",
-    },
-
-    {
-      title: "Internal Automation Tools",
-      tech: ["Node.js", "Shell Scripting", "Notion"],
-      description:
-        "Eigene kleine Tools zur Automatisierung wiederkehrender Aufgaben und zur Strukturierung von Projekten.",
-      link: "",
-      category: "Tooling",
     },
   ],
 

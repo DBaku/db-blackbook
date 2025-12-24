@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CV - Dimitrij Bakumenko</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #52525b;
+        --card: #ffffff;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --accent: #6d28d9; /* Anubis Violett */
+        --border: #e5e7eb;
+        --maxw: 920px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+      }
+
+      /* DIN A4 Simulation */
+      .document {
+        width: 210mm;
+        min-height: 297mm;
+        background: var(--card);
+        display: grid;
+        grid-template-columns: 66% 34%;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        margin: 0 auto;
+        overflow: hidden;
+      }
+
+      /* --- HEADER --- */
+      .header {
+        grid-column: 1/-1;
+        padding: 35px 40px;
+        display: flex;
+        gap: 25px;
+        align-items: center;
+        border-bottom: 1px solid var(--border);
+        background: linear-gradient(
+          90deg,
+          rgba(109, 40, 217, 0.04) 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+      }
+
+      .photo {
+        width: 110px;
+        height: 110px;
+        border-radius: 12px;
+        flex: 0 0 110px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background: #f3f4f6;
+      }
+      .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .header-info {
+        flex: 1;
+      }
+
+      .name {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.8rem;
+        margin: 0;
+        color: #111827;
+        line-height: 1.1;
+        letter-spacing: -0.5px;
+      }
+
+      .role {
+        margin: 6px 0 14px;
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 1.1rem;
+        letter-spacing: 0.2px;
+        text-transform: uppercase;
+      }
+
+      .contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px 20px;
+        color: #4b5563;
+        font-size: 0.9rem;
+      }
+      .contact a {
+        color: #1f2937;
+        text-decoration: none;
+        border-bottom: 1px dotted #9ca3af;
+        transition: 0.2s;
+      }
+      .contact a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      /* --- MAIN CONTENT (LEFT) --- */
+      main.main-content {
+        padding: 35px 40px 40px;
+        border-right: 1px solid var(--border);
+      }
+
+      .section {
+        margin-bottom: 35px;
+      }
+      .section:last-child {
+        margin-bottom: 0;
+      }
+
+      .section-title {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        color: #111827;
+        letter-spacing: 1.5px;
+        font-weight: 700;
+        border-bottom: 2px solid var(--accent);
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+
+      .summary {
+        font-size: 0.98rem;
+        line-height: 1.65;
+        color: #374151;
+        margin-top: 0;
+      }
+
+      /* Timeline */
+      .timeline-item {
+        position: relative;
+        padding-left: 24px;
+        margin-bottom: 28px;
+        border-left: 2px solid #e5e7eb;
+      }
+      .timeline-item:last-child {
+        margin-bottom: 0;
+      }
+      .timeline-item.current {
+        border-left-color: var(--accent);
+      }
+
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 6px;
+      }
+      .job-title {
+        font-weight: 700;
+        color: #111827;
+        font-size: 1.05rem;
+      }
+      .date-range {
+        font-size: 0.85rem;
+        color: var(--muted);
+        font-weight: 500;
+        background: #f3f4f6;
+        padding: 2px 8px;
+        border-radius: 4px;
+      }
+      .company-name {
+        font-weight: 600;
+        color: var(--accent);
+        font-size: 0.95rem;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      ul {
+        margin: 8px 0 0;
+        padding-left: 18px;
+      }
+      li {
+        font-size: 0.95rem;
+        color: #4b5563;
+        margin-bottom: 5px;
+        line-height: 1.5;
+      }
+
+      /* --- SIDEBAR (RIGHT) --- */
+      aside.sidebar {
+        padding: 35px 30px;
+        background: #fafafa;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .sidebar-section {
+        margin-bottom: 35px;
+      }
+
+      /* Strength */
+      .strength-item {
+        margin-bottom: 16px;
+      }
+      .strength-title {
+        font-weight: 700;
+        font-size: 0.92rem;
+        color: #111827;
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+      .strength-desc {
+        font-size: 0.85rem;
+        color: #6b7280;
+        line-height: 1.4;
+      }
+
+      /* Tech Stack */
+      .tech-category {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #9ca3af;
+        margin: 16px 0 8px 0;
+        letter-spacing: 0.5px;
+      }
+      .tech-category:first-of-type {
+        margin-top: 0;
+      }
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .tech-tag {
+        background: #ffffff;
+        border: 1px solid #d1d5db;
+        color: #374151;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.78rem;
+        font-weight: 500;
+      }
+      .tech-tag.core {
+        background: rgba(109, 40, 217, 0.08);
+        border-color: rgba(109, 40, 217, 0.2);
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      /* Languages */
+      .lang-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+        color: #374151;
+      }
+      .lang-level {
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      /* Projects Small */
+      .project-mini {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px dashed #e5e7eb;
+      }
+      .project-mini:last-child {
+        border: none;
+        margin: 0;
+        padding: 0;
+      }
+      .p-title {
+        font-weight: 700;
+        font-size: 0.92rem;
+        color: #1f2937;
+      }
+      .p-desc {
+        font-size: 0.82rem;
+        color: #6b7280;
+        line-height: 1.4;
+        margin-top: 2px;
+      }
+
+      /* --- QR CODE FOOTER (Neu platziert) --- */
+      .sidebar-footer {
+        margin-top: auto; /* Drückt den Footer nach ganz unten */
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; /* Rechtsbündig */
+      }
+      .qr-code {
+        width: 60px; /* Schön kompakt */
+        height: 60px;
+        opacity: 0.9;
+        border: 1px solid #d1d5db;
+        padding: 4px;
+        background: white;
+        border-radius: 4px;
+      }
+      .qr-label {
+        display: block;
+        font-size: 0.55rem;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 4px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-align: center;
+        width: 60px;
+      }
+
+      /* PRINT SETTINGS */
+      @media print {
+        @page {
+          margin: 0;
+          size: auto;
+        }
+        body {
+          padding: 0;
+          background: white;
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+        .document {
+          width: 100%;
+          height: 100%;
+          box-shadow: none;
+          margin: 0;
+          grid-template-columns: 66% 34%;
+        }
+        /* QR Code auch beim Druck erzwingen */
+        .sidebar-footer {
+          display: flex !important;
+        }
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="document">
+      <header class="header">
+        <div class="photo" aria-hidden="false">
+          <img
+            id="profile-photo"
+            alt="Profilbild (Platzhalter)"
+            src="cv-pic.jpg"
+          />
+          <script>
+            (function () {
+              const el = document.getElementById("profile-photo");
+              const candidates = [
+                "/assets/avatar/db1.jpg",
+                "cv-pic.jpg",
+                "cv-pic.png",
+                "profile.jpg",
+                "profile.png",
+                "photo.jpg",
+                "avatar.jpg",
+                "foto.jpg",
+                "profile.webp",
+                "profile.jpeg",
+              ];
+              const placeholder =
+                "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='480' height='480'><rect width='100%' height='100%' fill='%23eef6ff'/><text x='50%' y='52%' font-size='160' font-family='Poppins,Inter,Arial' font-weight='700' fill='%238aa6ff' text-anchor='middle' dominant-baseline='middle'>DB</text></svg>";
+              let i = 0;
+              function tryNext() {
+                if (i >= candidates.length) {
+                  el.src = placeholder;
+                  return;
+                }
+                const url = candidates[i++];
+                const img = new Image();
+                img.onload = function () {
+                  el.src = url;
+                };
+                img.onerror = tryNext;
+                img.src = url;
+              }
+              tryNext();
+            })();
+          </script>
+        </div>
+
+        <div class="header-info">
+          <h1 class="name">Dimitrij Bakumenko</h1>
+          <div class="role">Full Stack Developer & AI Creative</div>
+          <div class="contact">
+            <span>Berlin</span>
+            <a href="mailto:d.bakumenko030@gmail.com"
+              >d.bakumenko030@gmail.com</a
+            >
+            <a href="https://thevisionarylab.org" target="_blank"
+              >thevisionarylab.org</a
+            >
+            <a href="https://github.com/DBaku" target="_blank"
+              >github.com/DBaku</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="section">
+          <h2 class="section-title">Über mich</h2>
+          <p class="summary">
+            Student der Angewandten Informatik an der HTW Berlin mit Fokus auf
+            modernen Web-Architekturen. Ich verbinde technische Exzellenz in
+            <strong>React (Next.js)</strong> und <strong>TypeScript</strong> mit
+            automatisierten AI-Workflows. Mein Ansatz: "Build first, refine
+            fast" – Lösungen bauen, die nicht nur funktionieren, sondern
+            skalieren und begeistern.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Berufserfahrung</h2>
+
+          <article class="timeline-item current">
+            <div class="job-header">
+              <span class="job-title">Independent Developer & AI Artist</span>
+              <span class="date-range">2024 – Heute</span>
+            </div>
+            <span class="company-name">Freelance / The Visionary Lab</span>
+            <ul>
+              <li>
+                <strong>Full Stack Development:</strong> Konzeption und
+                Entwicklung performanter Web-Apps mit Next.js, TypeScript und
+                Tailwind.
+              </li>
+              <li>
+                <strong>AI Integration:</strong> Strategische Implementierung
+                von LLMs und Generativer KI in Produkt-Workflows.
+              </li>
+              <li>
+                <strong>Automation:</strong> Effizienzsteigerung durch
+                Custom-Scripts (Node.js) und API-Verknüpfungen (Stripe,
+                Cloudinary).
+              </li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="job-header">
+              <span class="job-title">Full Stack Web Development</span>
+              <span class="date-range">Bis 11/2024</span>
+            </div>
+            <span class="company-name">Intensiv-Weiterbildung</span>
+            <ul>
+              <li>
+                Praxisnahe Entwicklung von Single-Page-Applications (SPA) im
+                agilen Umfeld.
+              </li>
+              <li>
+                Umsetzung komplexer Frontend-Logik (React) und solider
+                Backend-Strukturen (Laravel/SQL).
+              </li>
+              <li>
+                Projekt: E-Commerce Plattform mit Echtzeit-Synchronisation.
+              </li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="job-header">
+              <span class="job-title">Operational Leadership</span>
+              <span class="date-range">2010 – 2023</span>
+            </div>
+            <span class="company-name"
+              >Diverse Stationen (Management & Handel)</span
+            >
+            <p style="margin: 0; font-size: 0.95rem; color: #4b5563">
+              Über ein Jahrzehnt Erfahrung in verantwortungsvollen Positionen
+              (Night Manager, Teamleiter).
+              <strong>Key Skills:</strong> Prozessoptimierung, Audit-Sicherheit
+              und krisenfeste Teamführung.
+            </p>
+          </article>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Ausbildung</h2>
+          <article class="timeline-item current">
+            <div class="job-header">
+              <span class="job-title">B.Sc. Angewandte Informatik</span>
+              <span class="date-range">2025 – Heute</span>
+            </div>
+            <span class="company-name">HTW Berlin</span>
+            <ul>
+              <li>
+                Vertiefung: Software Engineering, Algorithmen & Datenstrukturen.
+              </li>
+              <li>Fokus: Nachhaltige Systemarchitekturen & Mathematik.</li>
+            </ul>
+          </article>
+        </section>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-section">
+          <h3 class="section-title">Stärken</h3>
+          <div class="strength-item">
+            <div class="strength-title">
+              <span class="dot"></span> Product-Minded
+            </div>
+            <div class="strength-desc">
+              Ich denke nicht in Codezeilen, sondern in fertigen Lösungen.
+            </div>
+          </div>
+          <div class="strength-item">
+            <div class="strength-title">
+              <span class="dot"></span> AI-Engineering
+            </div>
+            <div class="strength-desc">
+              Deep Dive in LLMs, Hugging Face & Automation Pipelines.
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3 class="section-title">Tech Stack</h3>
+
+          <div class="tech-category">Core / Frontend</div>
+          <div class="tech-tags">
+            <span class="tech-tag core">JavaScript ES6+</span>
+            <span class="tech-tag core">TypeScript</span>
+            <span class="tech-tag core">React</span>
+            <span class="tech-tag core">Next.js</span>
+            <span class="tech-tag core">Tailwind</span>
+          </div>
+
+          <div class="tech-category">Backend / Infra</div>
+          <div class="tech-tags">
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Laravel</span>
+            <span class="tech-tag">Supabase</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Stripe</span>
+            <span class="tech-tag">Vercel</span>
+          </div>
+
+          <div class="tech-category">AI / Automation</div>
+          <div class="tech-tags">
+            <span class="tech-tag">Hugging Face</span>
+            <span class="tech-tag">Midjourney</span>
+            <span class="tech-tag">Automation</span>
+          </div>
+        </div>
+
+        <aside class="sidebar-section">
+          <h3 class="section-title">Projekte</h3>
+          <div class="project-mini">
+            <div class="p-title">The Visionary Lab</div>
+            <div class="p-desc">
+              Zentrale Asset-Plattform. <br />Stack: Next.js, Cloudinary.
+            </div>
+          </div>
+          <div class="project-mini">
+            <div class="p-title">Sprachen</div>
+            <div class="p-desc">
+              <div class="lang-item">
+                <span>Deutsch</span>
+                <span class="lang-level">C2</span>
+              </div>
+              <div class="lang-item">
+                <span>Englisch</span>
+                <span class="lang-level">C1</span>
+              </div>
+              <div class="lang-item">
+                <span>Russisch</span>
+                <span class="lang-level">B2</span>
+              </div>
+              <div class="lang-item">
+                <span>Spanisch</span>
+                <span class="lang-level">A2</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-footer">
+            <img
+              class="qr-code"
+              src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://thevisionarylab.org"
+              alt="Portfolio QR"
+            />
+            <span class="qr-label">Portfolio</span>
+          </div>
+        </aside>
+      </aside>
+    </div>
+  </body>
+</html>
